@@ -1,0 +1,12 @@
+{
+	"name": "not-amazon-scraper",
+	"actId": "RA6gg5hboYPNeDjQm",
+	"version": {
+		"versionNumber": "0.1",
+		"buildTag": "latest",
+		"envVars": [],
+		"sourceType": "TARBALL",
+		"tarballUrl": "https://api.apify.com/v2/key-value-stores/J3mRkrnFFyzypSEic/records/not-amazon-scraper-0.1.zip?disableRedirect=true"
+	},
+	"template": "puppeteer"
+}
