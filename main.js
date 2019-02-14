@@ -29,19 +29,19 @@ Apify.main(async () => {
   ]
 
   // Extract and enqueue URLs to crawl from the page.
-  await Apify.utils.puppeteer.enqueueLinks(
+  await Apify.utils.enqueueLinks({
     // page from which to extract URLs
-    searchResultsPage,
+    page: searchResultsPage,
 
     // selector under which to look for URLs
-    '#s-results-list-atf a.s-access-detail-page',
+    selector: '#s-results-list-atf a.s-access-detail-page',
 
     // pseudo URL object describing what URL format to look for
     pseudoUrls,
 
     // which queue to add the extracted URLs to
     requestQueue
-  )
+  })
 
   const crawler = new Apify.PuppeteerCrawler({
     // We've already created a browser instance manually, this will reuse this instance, otherwise
@@ -56,8 +56,10 @@ Apify.main(async () => {
 
       // The following CSS selector handles different variants of page layouts and pricing types.
       // It is by no means exhaustive, but the ones I found were used in this category.
-      const buyBox = await getInnerText(productDetailsPage,
-        '#price_inside_buybox, #newBuyBoxPrice, #soldByThirdParty .a-color-price')
+      const buyBox = await getInnerText(
+        productDetailsPage,
+        '#price_inside_buybox, #newBuyBoxPrice, #soldByThirdParty .a-color-price'
+      )
 
       // Save data in storage.
       await Apify.pushData({
