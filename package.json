@@ -1,6 +1,6 @@
 {
 	"name": "zine-not-amazon-scraper",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "This is a boilerplate of an Apify actor.",
 	"main": "main.js",
 	"dependencies": {
